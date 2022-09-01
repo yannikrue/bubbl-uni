@@ -1,0 +1,114 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.8'
+}
+
+javafx {
+    version = "11.0.2"
+    //modules = ['javafx.controls', 'javafx.fxml', 'javafx.base']
+    modules = ['javafx.controls', 'javafx.fxml', 'javafx.base']
+}
+
+//group 'ch.unibas.dmi.dbis'
+//version '0.0.1-ALPHA'
+//mainClassName = 'ch.unibas.dmi.dbis.cs108.example.HelloWorld'
+/*
+group 'group 17'
+version 'ServerGui 0.2.0' // 2. Milestone
+mainClassName = 'ch.unibas.dmi.dbis.cs108.example.gui.ServerGui'
+*/
+group 'group 17'
+//version 'Game' // 5. Milestone
+mainClassName = 'ch.unibas.dmi.dbis.cs108.gui.Main'
+
+//specifies source compatibility to Java 11
+sourceCompatibility = 1.11
+
+//adds maven central as a maven repository
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+/* The following lines are extensively documented. Please remove the documentation when you have read and understood it. */
+dependencies {
+    // EXAMPLE: LOGGING
+    /*
+    The following adds the logging framework Apache Log4J2.
+    The statements serve as an example on how to use libraries.
+    Since these are `implementation` dependencies, they are packed in the final jar.
+    Read the documentation at https://docs.gradle.org/current/userguide/declaring_dependencies.html to learn more
+     */
+    //implementation 'org.apache.logging.log4j:log4j-api:2.+'
+    //implementation 'org.apache.logging.log4j:log4j-core:2.+'
+
+    /*
+    This is another example - it imports the javafx-controls dependency
+     */
+    implementation 'org.openjfx:javafx-controls:11.0.2'
+
+    // JUNIT
+    /*
+    The following dependency is required to perform JUnit tests, as for example HelloWorldTest.
+    Since it is a `testCompile` dependency, it will not be part of the final product, only during testing.
+     */
+    testImplementation 'junit:junit:4.+'
+
+    implementation 'org.openjfx:javafx-controls:11.0.2'
+    implementation group: 'org.apache.commons', name: 'commons-math3', version: '3.0'
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.14.1'
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.14.1'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+
+    testCompile(
+            'pl.pragmatists:JUnitParams:1.0.5'
+    )
+
+    // MOCKITO
+    /*
+    Mockito is a framework for unit tests in Java.
+     */
+    testImplementation 'org.mockito:mockito-inline:3.7.7'
+    testImplementation 'org.mockito:mockito-junit-jupiter:3.7.7'
+}
+
+/*
+The following block adds both compile and runtime dependencies to the jar
+ */
+jar {
+    manifest {
+        attributes(
+                'Main-Class': mainClassName
+        )
+    }
+    from {
+        configurations.compileClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
+tasks.register('build-cs108') {
+    dependsOn build
+    dependsOn jar
+    dependsOn javadoc
+}
+
+// Below are not needed but interesting:
+// https://stackoverflow.com/questions/39059040/how-can-i-generate-a-jar-that-also-includes-javadoc-in-it-using-intellij-idea-i
+/*
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives sourcesJar
+    archives javadocJar
+}
+*/
