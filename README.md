@@ -1,6 +1,6 @@
 # bubble-uni
 
-bubble.uni is a real-time game inspired by agar.io, where players control a circle-shaped character and compete to reach the largest size before the match ends. Up to four players can play at a time, but the game can also be played with just two players.
+bubble.uni is a real-time game inspired by agar.io, developed as a project for a course at the University of Basel. I worked with Layla Hamad, Christian Hungerbuehler, and Benaja Munsch to create this game where players control a circle-shaped character and compete to reach the largest size before the match ends. Up to four players can play at a time, but the game can also be played with just two players.
 
 To gain mass in the game, players can collect *energizers* that are scattered throughout the play area. Players can also gain mass by shooting bubbles at their opponents, which will transfer some of their own mass to the opponent if it hits. However, players should be strategic with their *bubble* shots, as they will lose mass if they miss their target. As players gain mass, their character will become slower, making it easier for smaller, faster characters to avoid incoming shots or catch up to larger players.
 
