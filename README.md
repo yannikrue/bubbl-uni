@@ -7,3 +7,12 @@ To gain mass in the game, players can collect *energizers* that are scattered th
 The playfield is filled with black rectangles that act like black holes for bubbles, but serve as obstacles for the player characters. Players can use these rectangles to hide and protect themselves from incoming shots, but they must also navigate around them to pursue energizers or attack their opponents.
 
 As the game progresses and the total mass of all players increases, the energizers will respawn less frequently, making it more difficult to gain mass later in the game. The goal of the game is to be the largest player at the end of the round, either by reaching the maximum mass or by being the largest player when the clock hits zero. By using strategic shooting and carefully collecting energizers, players can outmaneuver their opponents and emerge victorious.
+<div>
+<img width="250" src="website/screenshot.png">
+<br>
+<video controls width="250">
+    <source src="website/gameplay.mp4"
+            type="video/mp4">
+    Sorry, your browser doesn't support embedded videos.
+</video>
+</div>
